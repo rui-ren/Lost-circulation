@@ -29,6 +29,7 @@ public:
 };
 
 // Boundary and Initial condition
+
 class Boundary
 {
 protected:
