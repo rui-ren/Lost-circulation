@@ -17,7 +17,6 @@ double PI = 3.1415926;
 	const double e_den = 9;       // fluid density
 	double r_s;					  // shear rate
 
-
 // Geometry of the drill string
 
 	const double D_po = 4.5;		 // the outer diameter of drill pipe
@@ -30,7 +29,6 @@ double PI = 3.1415926;
 	double w = PI*(D_po - D_pi)/2;      // the width of the annulus
 	double h =  (D_po - D_pi) / 2;	    // the 
 	double A = w * h;
-
 
 // Boundary and Initial condition
 
