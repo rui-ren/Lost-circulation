@@ -3,6 +3,7 @@
 #include <iostream>
 using namespace std;
 
+<<<<<<< HEAD
 double Pressure_Drop( )
 {
 
@@ -27,6 +28,9 @@ double Pressure_Drop( )
 }
 
 
+=======
+double v_av = Q/A;		     // average velocity
+>>>>>>> 113ff718d45dc36618452e65a7408ab40a779ab9
 
 
 
