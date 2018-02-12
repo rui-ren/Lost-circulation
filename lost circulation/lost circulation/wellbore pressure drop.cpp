@@ -24,7 +24,6 @@ int main() {
 		t_w1 = t_w2;
 	} while (e > 0.00000001);
 	cout << "wall shear stress is: " << t_w1 << endl;
-	system("pause");
 
 	// Calculate Generalized flow-behavior index. (Ahmed and Miska 2009)
 
@@ -32,7 +31,6 @@ int main() {
 	double P = 3 * m / (1 + 2 * m)*(1 - x / (1 + m) - (m / (1 + m))*pow(x, 2));
 	double N = m * P / (1 + 2 * m * (1 - P));
 	cout << "the generalized fluid flow index(0.15 < N < 0.4): " << N << endl;
-	system("pause");
 
 	// Use the correlation to calculate the critical Reynolds number for laminar and turbulent flow
 
@@ -78,7 +76,6 @@ int main() {
 	}
 	double P_drop = 4 * f_1 * t_w1 / (D_po - D_pi);
 	cout << "the pressure drop for annulus: " << P_drop << endl;
-	system("pause");
 	
 	// notice the pressure drop should include the pressure drop due to gravity
 	for (int i = 1; i <= (MD/50); i++)
@@ -98,6 +95,57 @@ int main() {
 
 	//////////////////////// Calculate the pressure drop in pipe //////////////////////////
 
+	//Step 1: Calculate the wall shear stress
+		double v_pipe = Q / A_pip;									  // average velocity in the pipe
+		double r_s_p = ((1 + 3 * m) / 4 / m)*(8 * v_pipe) / (D_pi);     // shear rate for the pipe
+		double t_w1_p = t_y + K * pow(r_s_p, m);		                  // initial t_w1
+		double e_p = 1;
+		do
+		{
+			double x = t_y / t_w1_p;
+			double Ca = 1 - x / (2*m+1);
+			double t_w2 = t_y + K * pow((r_s_p / Ca), m);
+			e = (t_w2 - t_w1) / t_w1_p;
+			t_w1_p = t_w2;
+		} while (e_p < 0.01);
+	// Step 2: Calculate the Reynolds number
+		double y = (log(m)+3.93)/50;
+		double z = (1.75 - log(m)) / 7;
+		double Cc = 1 - (1 / (2 * m + 1))*(t_y/t_w1);
+		// Critical Reynolds Number
+		double Re_cr = pow((4 * (3 * m + 1) / m / y), (1 / (1 - z)));
+		double Re_eq = ((6 * m + 2) / m)*(e_den*pow(v_pipe, (2 - m))*(D_pi/2))/((t_y*pow((D_pi/2/v_pipe),m))+K*((3*m+1)/m/Cc));
 
+		double f = 16 / Re_eq*(3 * m + 1) / 4 / m;
 
+		if (Re_cr > Re_eq)  // Laminar flow
+		{
+			double f1 = y * pow(Cc*Re_eq, (-z));
+			f = f1;
+		}
+
+		double pressure_drop_pipe = 2 * f * e_den*pow(v_pipe, 2) / D_pi;
+
+		// Step 3: Calculate the pressure drop cross the bit
+		float Db = 0.5;
+		double At = 3 * PI * pow(Db, 2) / 4;
+		double P_bit = e_den_1 * pow(Q_1,2)/(pow(At,2)*10858)/145;
+		cout << "bit pressure drop: "<< P_bit << endl;
+		system("pause");
+
+		// Step 4: Calculate the pressure drop along the pipe and get the standpipe pressure.
+		for (int i = 1; i <= (MD / 50); i++)
+		{
+			double md;
+			md = MD - i * 50;
+			if (md < H3)
+				cout << "Pipe pressure drop for H3: " << (md * pressure_drop_pipe) / 1000000 + P_bit << endl;
+			if (md > H3 && (md < (H2+H3)))
+			{
+				cout << "Pipe pressure drop for H2:" << (md * pressure_drop_pipe*cos(theta*PI / 180) + e_den * g * md) / 1000000 + P_bit << endl;
+			}
+			if ((md > (H2 + H3)) && md < (H1+H2+H3)) // Horizontal well 
+				cout << "Pipe pressure drop for H1: " << (md * pressure_drop_pipe + md * pressure_drop_pipe + e_den * g * H2 + H2 * pressure_drop_pipe*cos(theta*PI / 180)) / 1000000 + P_bit << endl;
+		}
+		system("pause");
 }
