@@ -98,6 +98,4 @@ int main() {
 
 	//////////////////////// Calculate the pressure drop in pipe //////////////////////////
 
-
-
 }
