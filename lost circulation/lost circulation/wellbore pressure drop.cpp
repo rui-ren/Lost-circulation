@@ -78,20 +78,20 @@ int main() {
 	cout << "the pressure drop for annulus: " << P_drop << endl;
 	
 	// notice the pressure drop should include the pressure drop due to gravity
-	for (int i = 1; i <= (MD/50); i++)
-	{
-		int md ;
-		md  = i * 50;
-		if (md < H1)
-			cout <<"Annulus pressure drop for H1: "<< (md * P_drop + e_den * g * md) / 1000000 << endl;
-		if (md < H2 && md > H1)
-		{
-			cout << "Annulus pressure drop for H2:" << (md * P_drop*cos(theta*PI / 180) + e_den * g * md) / 1000000 << endl;
-		}
-		if (md > H2) // Horizontal well 
-			cout << "Annulus pressure drop for H3: " << (md * P_drop + e_den * g * H2 + H2 * P_drop*cos(theta*PI / 180)) / 1000000 << endl;
-	}
-	system("pause");
+	//for (int i = 1; i <= (MD/10); i++)
+	//{
+	//	int md ;
+	//	md  = i * 10;
+	//	if (md < H3)
+	//		cout <<"Annulus pressure drop for H1: "<< (md * P_drop ) / 1000000 << endl;
+	//	if (md < (H3+H2) && md > (H3))
+	//	{
+	//		cout << "Annulus pressure drop for H2:" << (md * P_drop + e_den * g * (md-H3) *cos(theta*PI / 180)) / 1000000 << endl;
+	//	}
+	//	if (md > (H3+H2)&& md <(H1+H2+H3)) // Horizontal well 
+	//		cout << "Annulus pressure drop for H3: " << (md * P_drop + e_den * g * H2 * cos(theta*PI / 180)+ e_den*g*(md-H2-H3)) / 1000000 << endl;
+	//}
+	//system("pause");
 
 	//////////////////////// Calculate the pressure drop in pipe //////////////////////////
 
@@ -123,7 +123,6 @@ int main() {
 			double f1 = y * pow(Cc*Re_eq, (-z));
 			f = f1;
 		}
-
 		double pressure_drop_pipe = 2 * f * e_den*pow(v_pipe, 2) / D_pi;
 
 		// Step 3: Calculate the pressure drop cross the bit
@@ -131,21 +130,34 @@ int main() {
 		double At = 3 * PI * pow(Db, 2) / 4;
 		double P_bit = e_den_1 * pow(Q_1,2)/(pow(At,2)*10858)/145;
 		cout << "bit pressure drop: "<< P_bit << endl;
-		system("pause");
+
+		double P_f_H3 = 0;
+		double P_f_H2 = 0;
+		double P_f_H1 = 0;
 
 		// Step 4: Calculate the pressure drop along the pipe and get the standpipe pressure.
-		for (int i = 1; i <= (MD / 50); i++)
+		for (int i = 1; i <= (MD / 10); i++)
 		{
 			double md;
-			md = MD - i * 50;
-			if (md < H3)
-				cout << "Pipe pressure drop for H3: " << (md * pressure_drop_pipe) / 1000000 + P_bit << endl;
-			if (md > H3 && (md < (H2+H3)))
+			double section;
+			section = i * 10;
+			md = MD - section;    // the depth to wellhead.
+			if (md > (H2 + H1) && md < (H1 + H2 + H3))
 			{
-				cout << "Pipe pressure drop for H2:" << (md * pressure_drop_pipe*cos(theta*PI / 180) + e_den * g * md) / 1000000 + P_bit << endl;
+				P_f_H3 = (section * pressure_drop_pipe) / 1000000;
+				cout << "Pipe pressure drop for H3: " << P_f_H3 + P_bit << endl;
 			}
-			if ((md > (H2 + H3)) && md < (H1+H2+H3)) // Horizontal well 
-				cout << "Pipe pressure drop for H1: " << (md * pressure_drop_pipe + md * pressure_drop_pipe + e_den * g * H2 + H2 * pressure_drop_pipe*cos(theta*PI / 180)) / 1000000 + P_bit << endl;
+			if (md > H1 && md < (H2 + H1))
+			{
+				P_f_H2 = (section * pressure_drop_pipe )/1000000;  // friction pressure drop
+				cout << "Pipe pressure drop for H2:" << P_f_H2 + e_den * g * (section - H3)*cos(theta*PI / 180) / 1000000 + P_bit << endl;
+			}
+			if (md < H1 && md > 0) // Horizontal well 
+			{
+				// H3 section pressure drop acoording to the gravity and friction, plus H2 section
+				P_f_H1 = (section * pressure_drop_pipe) / 1000000;
+				cout << "Pipe pressure drop for H1: " << P_f_H1 + e_den * g * H2*cos(theta*PI / 180) / 1000000 + e_den*g* (section - H3 - H2) / 1000000 + P_bit << endl;
+			}
 		}
 		system("pause");
 }
