@@ -5,6 +5,8 @@
 #include <stdlib.h>
 using namespace std;
 
+// define the wellbore model and associate with the formation model!
+
 int main() {
 
 	///////////////////////////////calculate the pressure drop////////////////////////////
