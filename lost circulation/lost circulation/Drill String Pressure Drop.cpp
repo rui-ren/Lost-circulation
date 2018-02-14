@@ -2,7 +2,7 @@
 #include <iostream>
 using namespace std;
 
-// Calculate the wall shear stress in the pipe
+
 
 /*
 
