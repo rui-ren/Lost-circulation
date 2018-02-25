@@ -10,5 +10,3 @@ roughness induced pressure drop calculation
 4. geomechanics
 5. coupling model
 
-
-energy conservation
