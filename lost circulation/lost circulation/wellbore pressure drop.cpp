@@ -10,7 +10,7 @@ using namespace std;
 int main() {
 
 	///////////////////////////////calculate the pressure drop////////////////////////////
-
+        // add the tool joint effect and roughness profile in the calculation for MPD//////////////
 	// calculate the wall shear stress
 	double v_av = Q / A_anu;							// average velocity
 	double r_s = ((1 + 2 * m) / 3 / m)*(12 * v_av) / (D_hl - D_po);     // shear rate
