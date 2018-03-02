@@ -5,10 +5,12 @@
 #include <stdlib.h>
 using namespace std;
 
+// define the wellbore model and associate with the formation model!
+
 int main() {
 
 	///////////////////////////////calculate the pressure drop////////////////////////////
-
+        // add the tool joint effect and roughness profile in the calculation for MPD//////////////
 	// calculate the wall shear stress
 	double v_av = Q / A_anu;							// average velocity
 	double r_s = ((1 + 2 * m) / 3 / m)*(12 * v_av) / (D_hl - D_po);     // shear rate
@@ -92,6 +94,7 @@ int main() {
 	//		cout << "Annulus pressure drop for H3: " << (md * P_drop + e_den * g * H2 * cos(theta*PI / 180)+ e_den*g*(md-H2-H3)) / 1000000 << endl;
 	//}
 	//system("pause");
+	
 
 	//////////////////////// Calculate the pressure drop in pipe //////////////////////////
 
