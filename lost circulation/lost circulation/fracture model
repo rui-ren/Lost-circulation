@@ -1,4 +1,4 @@
-
+#include<iostream>
 double fracture_loss_model(double t_y,double K, double A_fra_initial, double w_i, double m, double Q, double pressure_wellbore)
 
 {
