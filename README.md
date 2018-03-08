@@ -9,4 +9,4 @@ roughness induced pressure drop calculation
 3. well trajectory
 4. geomechanics
 5. coupling model
-
+6. cutting transport and mud density
