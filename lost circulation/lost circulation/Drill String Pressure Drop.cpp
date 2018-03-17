@@ -2,7 +2,7 @@
 #include <iostream>
 using namespace std;
 
-// add the compare model of the effective diameter
+// add the compare model of the effective diameter Dr. majidi
 
 /*
 
