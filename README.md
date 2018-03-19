@@ -10,7 +10,7 @@ roughness induced pressure drop calculation
 4. geomechanics
 5. coupling model
 6. cutting transport and mud density
-
+7. coding
 
 The drilling can induce the pore pressure change of fault. and the fracture pressure should be change also well.
 
