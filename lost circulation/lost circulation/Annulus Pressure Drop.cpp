@@ -21,7 +21,6 @@ using namespace std;
 //	system("pause");
 //
 
-
 //	// Calculate Generalized flow-behavior index. (Ahmed and Miska 2009)
 //
 //	double x = t_y / t_w1;
