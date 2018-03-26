@@ -118,7 +118,7 @@ int main(){
 	// ????????????????????? flow rate need to calculate!
 
 	double Q = 12;     // gpm
-    Q = Q * (3.785 * pow(10, -3) / 60);
+    	Q = Q * (3.785 * pow(10, -3) / 60);
 
 	 //tansform inch to m
 	 //transform ft to m
