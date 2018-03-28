@@ -85,6 +85,7 @@ int main(){
 	// caution!! this is field unit.
 
 	double D_po = 5.875;         // pipe outer diameter
+	D_po = D_po * 25.4 / 1000;
 	double D_pi = 5.0;           // pipe inner diameter
 	double h_s1_length = 6200;   // first section of the hole
 	double h_s2_length = 8365;   // second section of the hole
@@ -123,9 +124,9 @@ int main(){
 	 //tansform inch to m
 	 //transform ft to m
 
-	  D_h_s1 = D_h_s1 * 0.3048;
-	  D_h_s2 = D_h_s2 * 0.3048;
-	  D_h_s3 = D_h_s3 * 0.3048;
+	  D_h_s1 = D_h_s1 * 25.4 / 1000;
+	  D_h_s2 = D_h_s2 * 25.4 / 1000;
+	  D_h_s3 = D_h_s3 * 25.4 / 1000;
 
 	  h_s1_length = h_s1_length * 0.3048;   // first section of the hole
 	  h_s2_length = h_s2_length * 0.3048;   // second section of the hole
