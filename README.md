@@ -17,3 +17,5 @@ The drilling can induce the pore pressure change of fault. and the fracture pres
 so we can use the green function and boundary integration to calculate the pressure change of fault.
 
 See the pressure change code of Dr. Younis!
+
+Non-isotherm hydraulic model, when comparision with the field data, the error only for 0.63% !!!!!!!!!!
