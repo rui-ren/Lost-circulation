@@ -1,6 +1,5 @@
 #include <math.h>
 #include <iostream>
-using namespace std;
 
 #pragma once
 #include"wellbore1.h"
