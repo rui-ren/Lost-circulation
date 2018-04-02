@@ -21,6 +21,7 @@ double PI = 3.1415926;
 		double wellbore::Drillpipe_pressure_drop(double D_po, double m, double D_pi, double H1, double H2, double H3, double MD, double e_den, double t_y, double K, double w, double h, double A_anu, double A_pip, double Q);
 
 	};
+ // bit pressure drop
 
 	//const double Q_1 = 300;				// the injection flow rate
 	// Transform the Field Unit to SI
