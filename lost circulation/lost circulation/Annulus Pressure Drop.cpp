@@ -85,7 +85,7 @@ int main(){
 
 	double D_po = 5.875;         // pipe outer diameter
 	D_po = D_po * 25.4 / 1000;
-	double D_pi = 5.0;           // pipe inner diameter
+	double D_pi = 5.0 - 0.3 * 2;           // pipe inner diameter
 	double h_s1_length = 6200;   // first section of the hole
 	double h_s2_length = 8365;   // second section of the hole
 	double h_s3_length = 1287;   // third section of the hole
