@@ -5,7 +5,7 @@ roughness induced pressure drop calculation
 
 
 1. wellbore model
-2. formation model
+2. formation model   (Euler forward method to numerical solve mud invasion radius)
 3. well trajectory
 4. geomechanics
 5. coupling model
