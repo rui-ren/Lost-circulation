@@ -301,7 +301,7 @@ int main(){
 	///////////////////////////////////// output the data file/////////////////////////////////////////////////////
 
 		ofstream outfile;
-		outfile.open("result the calculation");
+		outfile.open("result the calculation.csv");
 		outfile << "Annulus Pressure drop" << Annulus_Pressure_Profile[i] << endl;
 		outfile.close();
 		return 0;
