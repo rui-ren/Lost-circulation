@@ -64,24 +64,6 @@ int main(){
 	}
 	fileIN.close();
 	
-	//std::string line_;
-	//ifstream file_("1.txt");
-	//int depth;
-	//int inc;
-	//int azi;
-	//if (file_.is_open())
-	//{
-	//	while (file_>> depth >> inc >> azi);
-	//	{
-	//		std::cout << " the varaible in file " << depth << " " << inc << " " << azi << endl;
-	//	}
-	//	file_.close();
-	//}
-	//else
-	//	std::cout << "file is not open" << "\n";
-
-	/////////////////////////////// input the parameter of the wellbore and formation data/////////////////////////////
-	// caution!! this is field unit.
 
 	double D_po = 5.875;         // pipe outer diameter
 	D_po = D_po * 25.4 / 1000;
