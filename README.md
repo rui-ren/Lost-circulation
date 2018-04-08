@@ -19,3 +19,9 @@ so we can use the green function and boundary integration to calculate the press
 See the pressure change code of Dr. Younis!
 
 Non-isotherm hydraulic model, when comparision with the field data, the error only for 0.63% !!!!!!!!!!
+
+
+
+!!! caution, the numerical solution is not stable, the perturbation equation is unstable.
+
+check the second high-oder, and the Taylor series!
