@@ -20,7 +20,6 @@ int colA = 0;
 
 int main(){
 	////////////////////////////////////// read the data file of the well trajectoy/////////////////////////////////
-
 	string lineA;
 	float x;
 	string filename;
