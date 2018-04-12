@@ -4,7 +4,6 @@ using namespace std;
 
 // add the compare model of the effective diameter Dr. majidi
 
-/*
 
 double Pipe_Pressure_Drop()
 {
@@ -26,4 +25,3 @@ t_w1 = t_w2;
 return 0;
 }
 
-*/
