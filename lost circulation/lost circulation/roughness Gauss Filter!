@@ -1,9 +1,9 @@
 roughness Gauss Filter!
 primary figure
 FFT transformation
-Wavelength Cut
+Wavelength Cutoff 
 inverse FFT transformation
 
-
+Kalman filter!!
 
 !!!
