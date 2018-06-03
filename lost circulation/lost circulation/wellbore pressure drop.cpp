@@ -79,21 +79,21 @@ int main() {
 	double P_drop = 4 * f_1 * t_w1 / (D_po - D_pi);
 	cout << "the pressure drop for annulus: " << P_drop << endl;
 	
-	// notice the pressure drop should include the pressure drop due to gravity
-	//for (int i = 1; i <= (MD/10); i++)
-	//{
-	//	int md ;
-	//	md  = i * 10;
-	//	if (md < H3)
-	//		cout <<"Annulus pressure drop for H1: "<< (md * P_drop ) / 1000000 << endl;
-	//	if (md < (H3+H2) && md > (H3))
-	//	{
-	//		cout << "Annulus pressure drop for H2:" << (md * P_drop + e_den * g * (md-H3) *cos(theta*PI / 180)) / 1000000 << endl;
-	//	}
-	//	if (md > (H3+H2)&& md <(H1+H2+H3)) // Horizontal well 
-	//		cout << "Annulus pressure drop for H3: " << (md * P_drop + e_den * g * H2 * cos(theta*PI / 180)+ e_den*g*(md-H2-H3)) / 1000000 << endl;
-	//}
-	//system("pause");
+	 //notice the pressure drop should include the pressure drop due to gravity
+	for (int i = 1; i <= (MD/10); i++)
+	{
+		int md ;
+		md  = i * 10;
+		if (md < H3)
+			cout <<"Annulus pressure drop for H1: "<< (md * P_drop ) / 1000000 << endl;
+		if (md < (H3+H2) && md > (H3))
+		{
+			cout << "Annulus pressure drop for H2:" << (md * P_drop + e_den * g * (md-H3) *cos(theta*PI / 180)) / 1000000 << endl;
+		}
+		if (md > (H3+H2)&& md <(H1+H2+H3)) // Horizontal well 
+			cout << "Annulus pressure drop for H3: " << (md * P_drop + e_den * g * H2 * cos(theta*PI / 180)+ e_den*g*(md-H2-H3)) / 1000000 << endl;
+	}
+	system("pause");
 	
 
 	//////////////////////// Calculate the pressure drop in pipe //////////////////////////
